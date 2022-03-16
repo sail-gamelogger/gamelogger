@@ -66,9 +66,22 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 
 1. 在root的build.gradle
 ```gradle
+
+buildscript {
+    repositories {
+	//..
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    dependencies {
+	//..
+        classpath 'com.huawei.agconnect:agcp:{latest_version}'
+    }
+}
+
 allprojects {
     repositories {
 	//..
+	maven { url 'https://developer.huawei.com/repo/' }
 	maven { url 'https://jitpack.io' }
     }
 }
