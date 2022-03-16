@@ -4,7 +4,7 @@
 <div align="center">
 <h1 align="center">Gamelogger</h1>
 
-[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_public.md) | 中文
+[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_EN.md) | 中文
 
   <p align="center">
     游戏应用数据收集的Android库
