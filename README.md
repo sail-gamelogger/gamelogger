@@ -2,9 +2,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h1 align="center">Gamelogger</h1>
+<h3 align="center">Gamelogger</h3>
 
-[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_EN.md) | 中文
+<!--[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_public.md) | 中文-->
 
   <p align="center">
     游戏应用数据收集的Android库
@@ -35,6 +35,7 @@
     </li>
     <li><a href="#用法">用法</a></li>
     <li><a href="#数据列表">数据列表</a></li>
+    <li><a href="#牌照">牌照</a></li>
     <li><a href="#联络我们">联络我们</a></li>
   </ol>
 </details>
@@ -66,23 +67,9 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 
 1. 在root的build.gradle
 ```gradle
-
-buildscript {
-    repositories {
-	//..
-        maven { url 'https://developer.huawei.com/repo/' }
-    }
-    dependencies {
-	//..
-	//see latest version here: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
-        classpath 'com.huawei.agconnect:agcp:{latest_version}'
-    }
-}
-
 allprojects {
     repositories {
 	//..
-	maven { url 'https://developer.huawei.com/repo/' }
 	maven { url 'https://jitpack.io' }
     }
 }
@@ -91,7 +78,7 @@ allprojects {
 ```gradle
 dependencies {
     //..
-    implementation 'com.github.sail-gamelogger:gamelogger:1.0.0'
+    implementation 'com.github.sail-gamelogger:gamelogger:1.0.1'
 }
 ```
 
@@ -170,14 +157,13 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 
 已收集的数据可在华为AppGallery Connect的[华为分析服务](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)中查看。
 
-![readme_agc_screenshot](https://user-images.githubusercontent.com/101535354/158502766-6c525803-e03d-4381-866e-af98fa756ae5.png)
-
+[![AppGallery Connect Analytics Screen Shot][agc-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)
 
 #### 实时调试
 
 开发者也可在[应用调试](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)中查看实时数据。
 
-![readme_app_debugging_screenshot](https://user-images.githubusercontent.com/101535354/158502829-75fa5e1f-9a12-4bb2-8040-ee40448f6c67.png)
+[![App Debugging Screen Shot][app_debugging-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)
 
 
 <p align="right">(<a href="#top">回页顶</a>)</p>
@@ -187,33 +173,38 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 每次调用onEvent API都会收集以下数据：
 
 ```
+参数:
 1. allow_push （是否允许推送）	
 2. app_ver（APP版本号）
 3. channel （安装来源渠道，如有）
 4. country_code （国家码，如有）
 5. emui_ver （华为手机EMUI版本号，如有）
 6. gaid （谷歌广告ID，没有获取的话返回 "00000000-0000-0000-0000-000000000000"）
-7. gms_availability （设备是否有谷歌服务GMS）
-8. hms_availability （设备是否有华为服务HMS）
-9. huawei_aaid （华为设备标识符，没有获取的话返回 "00000000-0000-0000-0000-000000000000"）
-10. huawei_oaid （华为OAID，没有获取的话返回 "00000000-0000-0000-0000-000000000000"）
-11. is_emulator （设备是否模拟器）
-12. manufacturer （设备厂商）
-13. model （设备型号）
-14. oaid_tracking_flag （用户是否允许通过OAID追踪）
-15. os （设备操作系统）
-16. os_ver （设备操作系统版本号）
-17. package_name （APP包名）
-18. rom_ver （设备ROM版本号）
-19. screen_height （设备屏幕高度）
-20. screen_width （设备屏幕宽度）
-21. sys_language （设备系统语言）
-22. terminal_name （设备名称）
-23. timestamp （触发EVENT的时间戳）
-24. timezone （设备时间的时区）
-25. user_agent （用户代理）
-26. uuid （Gamelogger生成的UUID）
+7. huawei_aaid （华为设备标识符，没有获取的话返回 "00000000-0000-0000-0000-000000000000"）
+8. huawei_oaid （华为OAID，没有获取的话返回 "00000000-0000-0000-0000-000000000000"）
+9. manufacturer （设备厂商）
+10. model （设备型号）
+11. oaid_tracking_flag （用户是否允许通过OAID追踪）
+12. os （设备操作系统）
+13. os_ver （设备操作系统版本号）
+14. package_name （APP包名）
+15. rom_ver （设备ROM版本号）
+16. screen_height （设备屏幕高度）
+17. screen_width （设备屏幕宽度）
+18. sys_language （设备系统语言）
+19. terminal_name （设备名称）
+20. timestamp （触发EVENT的时间戳）
+21. user_agent （用户代理）
+22. uuid （Gamelogger生成的UUID）
 ```
+
+```
+用户属性:
+1. GMS_Availability （设备是否有谷歌服务GMS）
+2. HMS_Availability （设备是否有华为服务HMS）
+3. Emulator （设备是否模拟器）
+4. Timezone （设备时间的时区）
+````
 
 <p align="right">(<a href="#top">回页顶</a>)</p>
 
