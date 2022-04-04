@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">Gamelogger</h3>
+<h1 align="center">Gamelogger</h1>
 
 <!--[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_public.md) | 中文-->
 
@@ -74,10 +74,23 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 
 1. 在root的build.gradle
 ```gradle
+buildscript {
+    repositories {
+	//..
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    dependencies {
+	//..
+	//see latest version here: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
+        classpath 'com.huawei.agconnect:agcp:{latest_version}'
+    }
+}
+
 allprojects {
     repositories {
-  //..
-  maven { url 'https://jitpack.io' }
+	//..
+	maven { url 'https://developer.huawei.com/repo/' }
+	maven { url 'https://jitpack.io' }
     }
 }
 ```
