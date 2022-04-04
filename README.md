@@ -18,7 +18,6 @@
 </div>
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>目录</summary>
@@ -34,12 +33,22 @@
       </ul>
     </li>
     <li><a href="#用法">用法</a></li>
-    <li><a href="#数据列表">数据列表</a></li>
-    <li><a href="#牌照">牌照</a></li>
+    <li>
+      <a href="#查看和使用数据">查看和使用数据</a>
+      <ul>
+        <li><a href="#实时调试">实时调试</a></li>
+        <li>
+          <a href="#深度数据分析">深度数据分析</a>
+            <ul>
+              <li><a href="#会话路径分析">会话路径分析</a></li>
+              <li><a href="#漏斗分析">漏斗分析</a></li>
+            </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#联络我们">联络我们</a></li>
   </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -49,9 +58,7 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 简单易用，开发者只需要在项目里的任何位置调用onEvent API，Gamelogger 就会自动收集APP用户的数据（详看“自动收集的数据”）以作分析。
 兼容GMS/HMS，兼容minSdkVersion 18
 
-
 <p align="right">(<a href="#top">回页顶</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## 入门
@@ -67,6 +74,18 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 
 1. 在root的build.gradle
 ```gradle
+buildscript {
+    repositories {
+	//..
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+    dependencies {
+	//..
+	//see latest version here: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
+        classpath 'com.huawei.agconnect:agcp:{latest_version}'
+    }
+}
+
 allprojects {
     repositories {
 	//..
@@ -83,7 +102,6 @@ dependencies {
 ```
 
 <p align="right">(<a href="#top">回页顶</a>)</p>
-
 
 <!-- USAGE EXAMPLES -->
 ## 用法
@@ -153,28 +171,13 @@ EventPresets.Advertisement.SPLASH_AD_SHOWN = "ADS_SPLASH_AD_SHOWN"
 EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 ```
 
-### 在AppGallery Connect上查看数据
-
-已收集的数据可在华为AppGallery Connect的[华为分析服务](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)中查看。
-
-[![AppGallery Connect Analytics Screen Shot][agc-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)
-
-#### 实时调试
-
-开发者也可在[应用调试](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)中查看实时数据。
-
-[![App Debugging Screen Shot][app_debugging-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)
-
-
-<p align="right">(<a href="#top">回页顶</a>)</p>
-
 <!-- List of Data Per Event -->
-## 自动收集的数据
+### 自动收集的数据
 每次调用onEvent API都会收集以下数据：
 
+#### 参数
 ```
-参数:
-1. allow_push （是否允许推送）	
+1. allow_push （是否允许推送）  
 2. app_ver（APP版本号）
 3. channel （安装来源渠道，如有）
 4. country_code （国家码，如有）
@@ -198,8 +201,8 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 22. uuid （Gamelogger生成的UUID）
 ```
 
+#### 用户属性
 ```
-用户属性:
 1. GMS_Availability （设备是否有谷歌服务GMS）
 2. HMS_Availability （设备是否有华为服务HMS）
 3. Emulator （设备是否模拟器）
@@ -208,7 +211,61 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 
 <p align="right">(<a href="#top">回页顶</a>)</p>
 
+## 查看和使用数据
 
+已收集的数据可在华为AppGallery Connect的[华为分析服务](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)中查看。
+
+[![AppGallery Connect Analytics Screen Shot][agc-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/dashboard-0000001050985173)
+
+### 实时调试
+
+开发者也可在[应用调试](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)中查看实时数据。
+
+[![App Debugging Screen Shot][app_debugging-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/app-debugging-0000001051799712)
+
+### 深度数据分析
+
+收集回来的数据可以透过AppGallery Connect的工具进行深度分析，例如[会话路径分析](https://github.com/sail-gamelogger/gamelogger/edit/main/README.md#%E4%BC%9A%E8%AF%9D%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90)和[漏斗分析](https://github.com/sail-gamelogger/gamelogger/edit/main/README.md#%E6%BC%8F%E6%96%97%E5%88%86%E6%9E%90)。
+
+#### 事件及用户属性管理
+
+在进行深度分祈前，需要在AppGallery Connect配置。
+
+##### 事件管理
+
+把需要用的事件在[事件管理](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/meta-manage-0000001050985177)进行添加。
+
+[![Event Management Screenshot][event-mgt-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/meta-manage-0000001050985177)
+
+亦可编辑事件以添加需要用到的参数。
+
+##### 用户属性管理
+
+把需要用的用户属性在[用户属性管理](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/user-attribute-management-0000001078556286)进行添加。
+
+[![User Attribute Management Screenshot][ua-mgt-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/user-attribute-management-0000001078556286)
+
+#### 会话路径分析
+
+可在[会话路径分析](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/session-path-analysis-0000001078524332)查看事件路径。
+
+[![Session Path Analysis Screenshot][sp-analysis-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/session-path-analysis-0000001078524332)
+
+可以用用户属性在"添加过滤器"中筛选事件。
+
+[![Session Path Analysis Screenshot][sp-analysis-ua-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/session-path-analysis-0000001078524332)
+
+#### 漏斗分析
+
+可以透过[漏斗分析](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/funnel-analysis-0000001051065100)查看用户的流失率．
+
+[![Funnel Analysis Screenshot][fn-analysis-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/funnel-analysis-0000001051065100)
+
+可以用用户属性在"添加过滤器"中筛选事件。
+
+[![Funnel Analysis Screenshot][fn-analysis-ua-screenshot]](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/funnel-analysis-0000001051065100)
+
+<p align="right">(<a href="#top">回页顶</a>)</p>
 
 <!-- CONTACT -->
 ## 联络我们
@@ -218,7 +275,6 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 项目链接: [https://github.com/sail-gamelogger/gamelogger](https://github.com/sail-gamelogger/gamelogger)
 
 <p align="right">(<a href="#top">回页顶</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -237,3 +293,11 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 [product-screenshot]: images/screenshot.png
 [agc-screenshot]: images/readme_agc_screenshot.png
 [app_debugging-screenshot]: images/readme_app_debugging_screenshot.png
+[event-mgt-screenshot]: images/readme_eventmanagement.png
+[event-mgt-edit-screenshot]: images/readme_eventmanagement_edit.png
+[ua-mgt-screenshot]: images/readme_userattributemanagement.png
+[sp-analysis-screenshot]: images/readme_sessionpathanalysis.png
+[sp-analysis-ua-screenshot]: images/readme_sessionpathanalysis_ua.png
+[fn-analysis-screenshot]: images/readme_funnelanalysis.png
+[fn-analysis-ua-screenshot]: images/readme_funnelanalysis_ua.png
+
