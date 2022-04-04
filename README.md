@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h1 align="center">Gamelogger</h1>
+<h3 align="center">Gamelogger</h3>
 
 <!--[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_public.md) | 中文-->
 
@@ -89,7 +89,6 @@ buildscript {
 allprojects {
     repositories {
 	//..
-	maven { url 'https://developer.huawei.com/repo/' }
 	maven { url 'https://jitpack.io' }
     }
 }
