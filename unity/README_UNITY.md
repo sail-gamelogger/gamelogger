@@ -132,6 +132,8 @@ dependencies {
 
 7. 把 GameLogger.cs 配置到 Assets/
 
+8. 我们还需要从华为开发者账号内下载Agconnect-services.json，放到 Assets/Plugins/Android 路径下。
+
 <p align="right">(<a href="#top">回页顶</a>)</p>
 
 <!-- USAGE EXAMPLES -->
