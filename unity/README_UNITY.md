@@ -34,6 +34,20 @@
         <li><a href="#Unity上的集成流程">Unity上的集成流程</a></li>
       </ul>
     </li>
+    <li><a href="#用法">用法</a></li>
+    <li>
+      <a href="#查看和使用数据">查看和使用数据</a>
+      <ul>
+        <li><a href="#实时调试">实时调试</a></li>
+        <li>
+          <a href="#深度数据分析">深度数据分析</a>
+            <ul>
+              <li><a href="#会话路径分析">会话路径分析</a></li>
+              <li><a href="#漏斗分析">漏斗分析</a></li>
+            </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#联络我们">联络我们</a></li>
   </ol>
 </details>
@@ -137,6 +151,26 @@ Gamelogger.onEvent(String EVENT_NAME);
 ### 事件名称 EVENT_NAME
 
 事件名称EVENT_NAME参数可以是任何String，但是中间不能有空格或特殊字符。请注意，如果EVENT_NAME里有空格，头部或尾部的空格会被剪去，中间的空格会被替换成```_```
+
+## 查看和使用数据
+
+请参考<a href="../README.md/#查看和使用数据">查看和使用数据</a>
+
+### 实时调试
+
+请参考<a href="../README.md/#实时调试">实时调试</a>
+
+### 深度数据分析
+
+请参考<a href="../README.md/#深度数据分析">深度数据分析</a>
+
+#### 会话路径分析
+
+请参考<a href="../README.md/#会话路径分析">会话路径分析</a>
+
+#### 漏斗分析
+
+请参考<a href="../README.md/#漏斗分析">漏斗分析</a>
 
 <!-- CONTACT -->
 ## 联络我们
