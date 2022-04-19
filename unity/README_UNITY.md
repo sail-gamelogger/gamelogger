@@ -154,23 +154,23 @@ Gamelogger.onEvent(String EVENT_NAME);
 
 ## 查看和使用数据
 
-请参考<a href="../README.md/#查看和使用数据">查看和使用数据</a>
+请参考<a href="../README.md#查看和使用数据">查看和使用数据</a>
 
 ### 实时调试
 
-请参考<a href="../README.md/#实时调试">实时调试</a>
+请参考<a href="../README.md#实时调试">实时调试</a>
 
 ### 深度数据分析
 
-请参考<a href="../README.md/#深度数据分析">深度数据分析</a>
+请参考<a href="../README.md#深度数据分析">深度数据分析</a>
 
 #### 会话路径分析
 
-请参考<a href="../README.md/#会话路径分析">会话路径分析</a>
+请参考<a href="../README.md#会话路径分析">会话路径分析</a>
 
 #### 漏斗分析
 
-请参考<a href="../README.md/#漏斗分析">漏斗分析</a>
+请参考<a href="../README.md#漏斗分析">漏斗分析</a>
 
 <!-- CONTACT -->
 ## 联络我们
