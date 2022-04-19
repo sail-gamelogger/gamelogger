@@ -79,6 +79,7 @@ allprojects {
         }
         dependencies {
             // ...
+            //see latest version here: https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
             classpath 'com.huawei.agconnect:{latest_version}'
         }
     }
