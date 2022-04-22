@@ -175,7 +175,7 @@ Gamelogger.onEvent(String EVENT_NAME);
 <!-- CONTACT -->
 ## 联络我们
 
-开发者 - sailgamelogger@hotmail.com
+开发者: sailgamelogger@hotmail.com
 
 项目链接: [https://github.com/sail-gamelogger/gamelogger](https://github.com/sail-gamelogger/gamelogger)
 
