@@ -58,6 +58,8 @@ Gamelogger是一款基于华为分析服务（Analytics kit）的Android游戏�
 简单易用，开发者只需要在项目里的任何位置调用onEvent API，Gamelogger 就会自动收集APP用户的数据（详看“自动收集的数据”）以作分析。
 兼容GMS/HMS，兼容minSdkVersion 18
 
+如需在Unity上使用Gamelooger，请参考[README_UNITY.md](https://github.com/sail-gamelogger/gamelogger/blob/main/unity/README_UNITY.md)
+
 <p align="right">(<a href="#top">回页顶</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -270,7 +272,7 @@ EventPresets.Advertisement.NO_AD = "ADS_NO_AD"
 <!-- CONTACT -->
 ## 联络我们
 
-开发者 - sailgamelogger@hotmail.com
+开发者: sailgamelogger@hotmail.com
 
 项目链接: [https://github.com/sail-gamelogger/gamelogger](https://github.com/sail-gamelogger/gamelogger)
 
